@@ -1,0 +1,21 @@
+{
+  "name": "ooohm",
+  "displayName": "Ooo.hm",
+  "version": "0.0.1",
+  "description": "Work on your Ooo.hm electrical installation projects from Claude: floorplans, distribution boards and single-line diagrams.",
+  "author": {
+    "name": "Ooo.hm",
+    "url": "https://ooohm.app"
+  },
+  "homepage": "https://ooohm.app",
+  "license": "MIT",
+  "keywords": [
+    "electrical installation",
+    "electrician",
+    "single-line diagram",
+    "distribution board",
+    "floorplan",
+    "AREI",
+    "inspection"
+  ]
+}

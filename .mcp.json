@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "ooohm": {
+      "type": "http",
+      "url": "https://mcp.ooohm.app/mcp"
+    }
+  }
+}
