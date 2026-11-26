@@ -11,13 +11,16 @@ Count what an Ooo.hm project needs.
 3. Present it as tables:
    - per room, the points by type (a room without a name: say its type and
      area instead);
-   - the board modules by type and rating;
+   - the board modules by type and rating, a catalog module (KNX, Loxone,
+     Niko, power supply, energy meter, change-over) by its brand and model;
    - the totals.
-4. Say what the list is not. It counts elements. It has no cable lengths, no
-   brands and no prices: those the user adds.
+4. Say what the list is not. It counts elements. It has no cable lengths and
+   no prices, and brands only for the catalog modules on the boards: the rest
+   the user adds.
 5. A triple socket counts as three in this list (it is three mechanisms to
    buy), while the installation check counts it as one socket box. Mention it
-   when the user compares the two.
+   when the user compares the two. A plugged-in appliance counts as a socket
+   here; furniture is left out.
 6. Offer what follows: a comment on the project with the list for the team
    (`add_comment`), or the PDF dossier (`export_pdf`), which carries the
    diagrams but not this list.
