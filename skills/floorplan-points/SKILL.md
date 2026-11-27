@@ -33,7 +33,8 @@ room by room); you read it and place the points.
   and that they can undo it in Ooo.hm for 30 days (project menu, "Assistant
   changes") or ask you: `revert_agent_change` with that `batchId`. An undo
   leaves alone what someone changed since and lists it under `conflicts`. An
-  undo cannot itself be undone.
+  undo cannot itself be undone. An assistant takes at most 1,000 undos a day
+  per user: past that, the user undoes in Ooo.hm.
 - **Show the result.** After a change worth looking at, `show_drawing` puts
   the view in the conversation, with the changed elements marked.
 - **Changes are live at once** for everyone in the project. Before a large
@@ -86,7 +87,8 @@ When the user wants the plan's furniture and fixtures drawn too (toilet, bath,
 shower, sink, kitchen cabinets, bed, sofa, table, tv, a car, stairs), add them
 with `add_furniture` before the points, so a point can be placed near them.
 `at` is the centre of a piece in the drawing's centimetres: `get_elements` on
-the room's walls gives their positions. A piece within 15 cm of a wall goes
+the room's walls gives their positions. A spot off the canvas (0 to 50 000 on
+both axes) is refused `out-of-bounds`. A piece within 15 cm of a wall goes
 flush against it. Furniture types its room, and the check reads that type: a
 bath, a shower or a
 bathroom sink makes a bathroom, whose sockets need a 30 mA residual-current
@@ -125,7 +127,9 @@ then names points of one room.
 - A refusal carries the `index` of the point in your list. `room-not-found`:
   read the overview again. `not-in-room`: choose another `near`, or ask.
   `already-placed`: the point stands on the floorplan or a board already;
-  move it with `move_floorplan_elements` (step 5).
+  move it with `move_floorplan_elements` (step 5). `out-of-bounds`: the spot is
+  off the canvas (0 to 50 000 cm on both axes), so the measurement is wrong:
+  ask the user.
 
 ## 5. Move what is placed
 

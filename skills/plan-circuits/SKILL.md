@@ -33,7 +33,8 @@ the knowledge of the rules (in Belgium the AREI) and the user decides.
   and that they can undo it in Ooo.hm for 30 days (project menu, "Assistant
   changes") or ask you: `revert_agent_change` with that `batchId`. An undo
   leaves alone what someone changed since and lists it under `conflicts`. An
-  undo cannot itself be undone.
+  undo cannot itself be undone. An assistant takes at most 1,000 undos a day
+  per user: past that, the user undoes in Ooo.hm.
 - **Show the result.** After a change worth looking at, `show_drawing` puts
   the view in the conversation, with the changed elements marked.
 - **Changes are live at once** for everyone in the project. Before a large

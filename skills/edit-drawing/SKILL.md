@@ -1,6 +1,6 @@
 ---
 name: edit-drawing
-description: Change an existing Ooo.hm project. Rename or re-rate elements, change a module's options or a PV part's model, change what a point is, labels and quantities, name rooms, set cables, move points and furniture on the floorplan, move devices, legs and points on the single-line diagram, move modules on a board, rename, resize or reorder a board, change what feeds a board, delete elements, unlink things on the single-line diagram, change how modules are numbered, change the project's details and installation settings, undo an earlier change or go back to a saved version. Use when the user asks to change, fix, rename, relabel, move, turn, resize, delete, remove, unlink, undo or restore something in a project.
+description: Change an existing Ooo.hm project. Rename or re-rate elements, change a module's type, home-automation model or options or a PV part's model, change what a point is, labels and quantities, name rooms, set cables, move points and furniture on the floorplan, move devices, legs and points on the single-line diagram, move modules on a board, rename, resize or reorder a board, change what feeds a board, delete elements, unlink things on the single-line diagram, change how modules are numbered, change the project's details and installation settings, undo an earlier change or go back to a saved version. Use when the user asks to change, fix, rename, relabel, move, turn, resize, delete, remove, unlink, undo or restore something in a project.
 ---
 
 Change what is already drawn in an Ooo.hm project, the way the app itself
@@ -32,7 +32,8 @@ would: every tool here does what a button in the app does.
   and that they can undo it in Ooo.hm for 30 days (project menu, "Assistant
   changes") or ask you: `revert_agent_change` with that `batchId`. An undo
   leaves alone what someone changed since and lists it under `conflicts`. An
-  undo cannot itself be undone.
+  undo cannot itself be undone. An assistant takes at most 1,000 undos a day
+  per user: past that, the user undoes in Ooo.hm.
 - **Show the result.** After a change worth looking at, `show_drawing` puts
   the view in the conversation, with the changed elements marked.
 - **Changes are live at once** for everyone in the project. Before a large
@@ -82,6 +83,12 @@ would: every tool here does what a button in the app does.
   where it stands: `move_modules` it to a free stretch first.
 - `subType`, `poles`, `category`, `connector` and `hardwired` change what a
   point is. The new type clears what it cannot carry, as the app does: say so.
+- A module's `type` (a breaker made an RCBO, a contactor an impulse relay), its
+  home-automation model (`subType` of a Loxone, Niko or KNX module) and a KNX
+  module's `channels` change as the app's type switch and model picker do. The
+  I/O points, links and legs the new type or model still has stay; the answer
+  lists what went (`droppedPoints`, `droppedLegs`) and a KNX count it moved
+  (`channelsMoved`): tell the user.
 - `model` changes the catalog model of a PV panel, an inverter, an MPPT device
   or an optimiser: see `pv-installation`.
 - A text field is cleared with null or an empty string.
